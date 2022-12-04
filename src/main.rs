@@ -2,7 +2,7 @@ mod error;
 
 use crate::error::{CustomError, LibError, LibErrorEnum};
 use std::fs::File;
-use std::io;
+
 use std::io::Read;
 
 fn read_num_simple(filename: &str) -> Result<u64, LibErrorEnum> {
