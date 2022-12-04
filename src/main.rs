@@ -2,10 +2,10 @@ mod error;
 
 use crate::error::LibError;
 use crate::error::LibErrorEnum;
-use std::fmt::Display;
+
 use std::fs::File;
 use std::io::Read;
-use std::num::ParseIntError;
+
 
 fn read_number_from_file(filename: &str) -> Result<u64, LibError> {
     let mut file = File::open(filename).map_err(errmsg!(filename.to_string()))?; // Error!
