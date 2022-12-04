@@ -60,15 +60,15 @@ macro_rules! err {
 
 #[macro_export]
 macro_rules! errmsg {
-    ($message: expr) => {
+    ($($t:tt)*) => {{
         |e| LibError {
             inner: LibErrorEnum::from(e),
-            msg: Some($message),
+            msg: Some(format!($($t)*)),
             file: file!(),
             line: line!(),
             column: column!(),
         }
-    };
+    }};
 }
 
 
