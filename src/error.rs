@@ -1,7 +1,6 @@
 use std::error::Error;
 use std::fmt::Display;
 
-
 use std::num::ParseIntError;
 
 #[derive(Debug)]
@@ -70,7 +69,6 @@ macro_rules! errmsg {
         }
     }};
 }
-
 
 impl Display for LibErrorEnum {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
