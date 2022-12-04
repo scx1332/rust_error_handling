@@ -1,6 +1,6 @@
+use super::CustomError;
 use std::fmt::Display;
 use std::num::ParseIntError;
-use super::CustomError;
 
 /// Enum containing all possible errors used in the library
 /// Probably you can use thiserror crate to simplify this process
@@ -10,7 +10,6 @@ pub enum ErrorBag {
     IoError(std::io::Error),
     CustomError(CustomError),
 }
-
 
 impl Display for ErrorBag {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

@@ -1,8 +1,7 @@
-mod error;
-
-use crate::error::{CustomError, WrappedError, ErrorBag};
+use rust_error_handling::{
+    err_create, err_from, err_from_msg, CustomError, ErrorBag, WrappedError,
+};
 use std::fs::File;
-
 use std::io::Read;
 
 fn read_num_simple(filename: &str) -> Result<u64, ErrorBag> {
@@ -40,36 +39,36 @@ fn read_num_wrapped(filename: &str) -> Result<u64, WrappedError> {
 }
 
 fn main() {
-    match read_num_simple("not_exists.txt") {
+    match read_num_simple("examples/input/not_exists.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
-    match read_num_simple("number_invalid.txt") {
+    match read_num_simple("examples/input/number_invalid.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
-    match read_num_simple("number_1000.txt") {
+    match read_num_simple("examples/input/number_1000.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
-    match read_num_simple("number_10.txt") {
+    match read_num_simple("examples/input/number_10.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
 
-    match read_num_wrapped("not_exists.txt") {
+    match read_num_wrapped("examples/input/not_exists.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
-    match read_num_wrapped("number_invalid.txt") {
+    match read_num_wrapped("examples/input/number_invalid.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
-    match read_num_wrapped("number_1000.txt") {
+    match read_num_wrapped("examples/input/number_1000.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }
-    match read_num_wrapped("number_10.txt") {
+    match read_num_wrapped("examples/input/number_10.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),
     }

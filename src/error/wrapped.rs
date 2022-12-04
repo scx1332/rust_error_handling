@@ -1,5 +1,5 @@
-use std::error::Error;
 use super::ErrorBag;
+use std::error::Error;
 
 /// Error type build over ErrorBag, containing source code location and optional message
 /// Note that only creating via macro is possible to catch line and file

@@ -12,7 +12,6 @@ macro_rules! err_create {
     };
 }
 
-
 ///This macro is wrapping error with line + file info without optional message
 #[macro_export]
 macro_rules! err_from {
