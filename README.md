@@ -36,8 +36,8 @@ Error: CustomError: Number is too big
 ```
 Errors with wrapping macros:
 ```
-Error: Cannot open examples/input/not_exists.txt, The system cannot find the file specified. (os error 2), examples\present_errors.rs:23:49
-Error: Error when parsing examples/input/number_invalid.txt, invalid digit found in string, examples\present_errors.rs:32:18
-Error: CustomError: Number is too big, examples\present_errors.rs:35:20
+Error: Cannot open examples/input/not_exists.txt, The system cannot find the file specified. (os error 2), examples/present_errors.rs:23:49
+Error: Error when parsing examples/input/number_invalid.txt, invalid digit found in string, examples/present_errors.rs:32:18
+Error: CustomError: Number is too big, examples/present_errors.rs:35:20
 ```
 
