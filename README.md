@@ -41,3 +41,9 @@ Error: Error when parsing examples/input/number_invalid.txt, invalid digit found
 Error: CustomError: Number is too big, examples/present_errors.rs:35:20
 ```
 
+When run in debug mode display attempts to link the file in output so you can easily click it in your IDE output:
+```
+Error: Cannot open examples/input/not_exists.txt, The system cannot find the file specified. (os error 2), C:\scx1332\rust_error_handling\examples\present_errors.rs:23:49
+Error: Error when parsing examples/input/number_invalid.txt, invalid digit found in string, C:\scx1332\rust_error_handling\examples\present_errors.rs:32:18
+Error: CustomError: Number is too big, C:\scx1332\rust_error_handling\examples\present_errors.rs:35:20
+```
