@@ -29,11 +29,11 @@ impl std::fmt::Display for WrappedError {
                     let path = fs::canonicalize(p).unwrap_or(self.file.into());
                     path.display().to_string().replace(r"\\?\", "")
                 } else {
-                    self.file.replace(r"\\", "/")
+                    self.file.replace(r"\", "/")
                 }
             }
             #[cfg(not(debug_assertions))]
-            self.file.replace(r"\\", "/")
+            self.file.replace(r"\", "/")
         };
 
         if let Some(msg) = &self.msg {
