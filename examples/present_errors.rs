@@ -39,6 +39,7 @@ fn read_num_wrapped(filename: &str) -> Result<u64, WrappedError> {
 }
 
 fn main() {
+    println!(r"Starting example present_errors.rs");
     match read_num_simple("examples/input/not_exists.txt") {
         Ok(num) => println!("Number: {}", num),
         Err(err) => println!("Error: {}", err),

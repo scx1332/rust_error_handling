@@ -22,6 +22,22 @@ Then ErrorBag that is enum collection of all errors that can occur in your libra
 
 WrappedError enables use of macros to store where the error happen.
 
+## Example
 
+```
+cargo run --example present_errors
+```
 
+Errors without wrapping:
+```
+Error: The system cannot find the file specified. (os error 2)
+Error: invalid digit found in string
+Error: CustomError: Number is too big
+```
+Errors with wrapping macros:
+```
+Error: Cannot open examples/input/not_exists.txt, The system cannot find the file specified. (os error 2), examples\present_errors.rs:23:49
+Error: Error when parsing examples/input/number_invalid.txt, invalid digit found in string, examples\present_errors.rs:32:18
+Error: CustomError: Number is too big, examples\present_errors.rs:35:20
+```
 

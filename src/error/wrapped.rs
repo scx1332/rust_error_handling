@@ -20,17 +20,33 @@ impl Error for WrappedError {
 
 impl std::fmt::Display for WrappedError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let file_loc = {
+            #[cfg(debug_assertions)]
+            {
+                use std::fs;
+                let p = std::path::Path::new(self.file);
+                if p.exists() {
+                    let path = fs::canonicalize(p).unwrap_or(self.file.into());
+                    path.display().to_string().replace(r"\\?\", "")
+                } else {
+                    self.file.replace(r"\\", "/")
+                }
+            }
+            #[cfg(not(debug_assertions))]
+            self.file.replace(r"\\", "/")
+        };
+
         if let Some(msg) = &self.msg {
             write!(
                 f,
                 "{}, {}, {}:{}:{}",
-                msg, self.inner, self.file, self.line, self.column
+                msg, self.inner, file_loc, self.line, self.column
             )
         } else {
             write!(
                 f,
                 "{}, {}:{}:{}",
-                self.inner, self.file, self.line, self.column
+                self.inner, file_loc, self.line, self.column
             )
         }
     }
